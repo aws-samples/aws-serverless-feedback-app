@@ -1,0 +1,186 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: feedback-app-backend serverless application
+Globals:
+  Function:
+    Runtime: nodejs12.x
+    MemorySize: 128
+    Timeout: 100
+    Tracing: Active
+  Api:
+    Cors:
+      AllowMethods: "'POST,GET,OPTIONS'"
+      AllowHeaders: "'Content-Type,x-requested-with,Access-Control-Allow-Origin,Access-Control-Allow-Headers,Access-Control-Allow-Methods'"
+      AllowOrigin: "'*'"
+      AllowCredentials: False
+
+Resources:
+  FeedbackStateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      DefinitionUri: statemachine/feedback-sm.json
+      DefinitionSubstitutions:
+        SubmitFeedbackServiceFunctionArn: !GetAtt SubmitFeedbackServiceFunction.Arn
+        WebHookNotificationServiceFunctionArn: !GetAtt WebHookNotificationServiceFunction.Arn
+        SentimentAnalysisServiceFunctionArn: !GetAtt SentimentAnalysisServiceFunction.Arn
+      Events:
+        Service:
+          Type: Api
+          Properties:
+            Path: /submit-feedback
+            Method: POST
+            RestApiId:
+              Ref: FeedbackAPI
+      Tracing:
+        Enabled: True
+      Policies:
+        - LambdaInvokePolicy:
+            FunctionName: !Ref SentimentAnalysisServiceFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref SubmitFeedbackServiceFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref WebHookNotificationServiceFunction
+        - Statement:
+            - Sid: EnableXRayOnExistingStateMachinePolicy
+              Effect: Allow
+              Action:
+                - xray:PutTraceSegments
+                - xray:PutTelemetryRecords
+                - xray:GetSamplingRules
+                - xray:GetSamplingTargets
+              Resource: "*"
+
+  FeedbackAPI:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowMethods: "'POST,GET,OPTIONS'"
+        AllowHeaders: "'Content-Type,x-requested-with,Access-Control-Allow-Origin,Access-Control-Allow-Headers,Access-Control-Allow-Methods'"
+        AllowOrigin: "'*'"
+        AllowCredentials: False
+      EndpointConfiguration: EDGE
+      Name: feedback-app-backend-api
+      TracingEnabled: True
+
+  WebHookNotificationServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: The lambda function to process webhook notification
+      Handler: app.webHookNotificationHandler
+      CodeUri: webhooknotification-service/
+      Environment:
+        Variables:
+          WEBHOOK_PARAM: !Ref WebhookURLSSMParameter
+      Policies:
+        - SSMParameterReadPolicy:
+            ParameterName: !Ref WebhookURLSSMParameter
+        - AWSXRayDaemonWriteAccess
+
+  SentimentAnalysisServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: This lambda function will carry out a sentitment analysis of the feedback text
+      Handler: app.sentimentAnalysisHandler
+      CodeUri: sentimentanalysis-service/
+      Policies:
+        - ComprehendBasicAccessPolicy: {}
+        - AWSXRayDaemonWriteAccess
+
+  SubmitFeedbackServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: The lambda function to process feedback and add the feedback as an item in a DynamoDB table
+      Handler: app.submitFeedbackHandler
+      CodeUri: submitfeedback-service/
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref FeedbackDB
+        - AWSXRayDaemonWriteAccess
+      Environment:
+        Variables:
+          FEEDBACK_DB: !Ref FeedbackDB
+
+  GetAllFeedbackServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: The lambda function to get submitted feedbacks from the database
+      Handler: app.getAllFeedbackHandler
+      CodeUri: getallfeedback-service/
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref FeedbackDB
+        - AWSXRayDaemonWriteAccess
+      Environment:
+        Variables:
+          FEEDBACK_DB: !Ref FeedbackDB
+      Events:
+        GetAllFeedbackEvent:
+          Type: Api
+          Properties:
+            Path: /get-all-feedback
+            Method: GET
+            RestApiId:
+              Ref: FeedbackAPI
+
+  GetFeedbackByShareStatusServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: The lambda function to get submitted feedbacks by share status
+      Handler: app.getFeedbackByShareStatusHandler
+      CodeUri: getfeedbackbysharestatus-service/
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref FeedbackDB
+        - AWSXRayDaemonWriteAccess
+      Environment:
+        Variables:
+          FEEDBACK_DB: !Ref FeedbackDB
+      Events:
+        GetFeedbackByShareStatusEvent:
+          Type: Api
+          Properties:
+            Path: /get-feedback-by-sharestatus
+            Method: GET
+            RestApiId:
+              Ref: FeedbackAPI
+
+  FeedbackDB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: feedback-app-backend
+      AttributeDefinitions:
+        - AttributeName: feedback_id
+          AttributeType: S
+        - AttributeName: feedback_date
+          AttributeType: S
+        - AttributeName: share_feedback
+          AttributeType: S
+      KeySchema:
+        - AttributeName: feedback_id
+          KeyType: HASH
+        - AttributeName: feedback_date
+          KeyType: RANGE
+      BillingMode: PAY_PER_REQUEST
+      GlobalSecondaryIndexes:
+        - IndexName: ShareFeedbackStatusIndex
+          KeySchema:
+            - AttributeName: share_feedback
+              KeyType: HASH
+            - AttributeName: feedback_date
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+
+  WebhookURLSSMParameter:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Name: feedback-app-chime-webhook-url
+      Description: "parameter store for webhook urls to send feedback notifications"
+      Type: String
+      Value: https://hooks.chime.aws/incomingwebhooks/d19c9ba7-e9ee-4d49-be1b-18c784616de1?token=N3ZzWmhpczB8MXx6clhpZXpmS3dyY2JsLTI1Ymx5ZUxWUnVzcEZ0djBERXdLenRBb1Mxcm1z
+
+Outputs:
+  ServiceApi:
+    Description: "API Gateway endpoint URL for Prod stage for service function"
+    Value: !Sub "https://${FeedbackAPI}.execute-api.${AWS::Region}.amazonaws.com/Prod/"

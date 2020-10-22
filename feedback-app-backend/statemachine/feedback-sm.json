@@ -1,0 +1,23 @@
+{
+  "Comment": "A state machine for processing feedbacks",
+  "StartAt": "SentimentAnalysisState",
+  "States": {
+    "SentimentAnalysisState": {
+      "Type": "Task",
+      "Resource": "${SentimentAnalysisServiceFunctionArn}",
+      "Next": "SumbitFeedbackState"
+    },
+    "SumbitFeedbackState": {
+      "Type": "Task",
+      "Resource": "${SubmitFeedbackServiceFunctionArn}",
+      "InputPath": "$.body",
+      "Next": "SendWebhookNotification"
+    },
+    "SendWebhookNotification": {
+      "Type": "Task",
+      "Resource": "${WebHookNotificationServiceFunctionArn}",
+      "InputPath": "$.body",
+      "End": true
+    }
+  }
+}

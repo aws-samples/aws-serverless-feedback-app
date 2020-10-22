@@ -1,0 +1,18 @@
+/md ### :boom: New Feedback Alert :boom:
+***
+**Sentiments:** fd_sentiment &nbsp; &nbsp; | &nbsp; &nbsp; **Concerning:** fd_concerning &nbsp; &nbsp; | &nbsp; &nbsp; **From:** fd_from &nbsp; &nbsp;  | &nbsp; &nbsp; **Status:** fd_status &nbsp; &nbsp; | &nbsp; &nbsp; **Date:** fd_date
+
+**Feedback** :envelope_with_arrow:
+> **fd_feedbacktext**
+
+***
+**An example to set some context**
+
+*Situation*
+> **fd_feedbacksituation**
+
+*Behaviour*
+> **fd_feedbackbehaviour**
+
+*Impact*
+> **fd_feedbackimpact**

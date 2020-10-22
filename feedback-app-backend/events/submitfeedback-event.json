@@ -1,0 +1,4 @@
+{
+    "httpMethod": "POST",
+    "body" : "{\"feedback_recepient\": \"recepient\",\"feedback_text\": \"text\", \"feedback_sender\": \"sender\"}"
+}

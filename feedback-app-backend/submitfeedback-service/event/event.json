@@ -1,0 +1,10 @@
+{
+  "feedback_recepient": "@wholeteam",
+  "feedback_text": "testing feedback text contents",
+  "feedback_sender": "@testing",
+  "feedback_situation": "testing situation",
+  "feedback_behaviour": "testing behaviour",
+  "feedback_impact": "testing impact",
+  "share_feedback": "true",
+  "feedback_sentitment": "POSITIVE"
+}

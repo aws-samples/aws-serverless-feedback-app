@@ -1,0 +1,5 @@
+node_modules
+.aws-sam/
+samconfig.toml
+packaged.yaml
+cc-details.txt

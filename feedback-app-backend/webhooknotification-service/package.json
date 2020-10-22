@@ -1,0 +1,19 @@
+{
+  "name": "webhook_notification_service",
+  "version": "1.0.0",
+  "description": "Submit Feedback Lambda Fucntion for NodeJS",
+  "main": "app.js",
+  "author": "SAM CLI",
+  "license": "MIT-0",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dateformat": "^3.0.3"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}
