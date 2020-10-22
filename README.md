@@ -8,6 +8,10 @@ The **Serverless Feedback App** is a simple two page web application that was de
 
 _Please note that you may incure AWS charges for deploying the feedback application into your AWS account as not all services used are part of the [free tier](https://aws.amazon.com/free/) and you might exceed the free tier usage limit. To track costs in your AWS account, consider using [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/) and [AWS Billing and Cost Management](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-what-is.html). You can also set up a [budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/) to get notified of when actual or forecasted cost and usage exceed your budget threshold._
 
+<p align="center">
+  <img src="docs/images/hl_architecture.png" alt="High-level architecture of the feedback app"/>
+</p>
+
 Be sure to:
 
 - Change the title in this README
