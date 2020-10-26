@@ -2,7 +2,7 @@
 
 ## How do I use it?
 
-- [Deploying the App]
+- [Getting started](getting_started.md): instructions to setup the project
 
 ## How does it work?
 
