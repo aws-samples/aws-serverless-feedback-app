@@ -1,0 +1,5 @@
+{
+  "code_commit_repo_name": "feedback-app-repo-frontend",
+  "amplify_role_name": "Feedback-App-Frontend-AmplifyRole",
+  "amplify_app_name": "feedback-app-frontend"
+}

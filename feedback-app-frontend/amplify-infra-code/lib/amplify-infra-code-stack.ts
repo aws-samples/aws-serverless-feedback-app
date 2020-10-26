@@ -2,6 +2,7 @@ import * as cdk from "@aws-cdk/core";
 import * as codecommit from "@aws-cdk/aws-codecommit";
 import * as amplify from "@aws-cdk/aws-amplify";
 import * as iam from "@aws-cdk/aws-iam";
+import Constants from "../global/constants.json";
 
 export class AmplifyInfraCodeStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -12,7 +13,7 @@ export class AmplifyInfraCodeStack extends cdk.Stack {
       this,
       "FeedbackAppFrontEndRepo",
       {
-        repositoryName: "feedback-app-repo-frontend",
+        repositoryName: Constants.code_commit_repo_name,
         description: "The repository for the frontend of the feedback app",
       }
     );
@@ -23,16 +24,20 @@ export class AmplifyInfraCodeStack extends cdk.Stack {
       {
         assumedBy: new iam.ServicePrincipal("amplify.amazonaws.com"),
         description: "The to be used by amplify to deploy the application",
-        roleName: "Feedback-App-Frontend-AmplifyRole",
+        roleName: Constants.amplify_role_name,
       }
     );
 
-    const feedbackFrontendApp = new amplify.App(this, "feedback-app-frontend", {
-      sourceCodeProvider: new amplify.CodeCommitSourceCodeProvider({
-        repository: feedbackAppFrontEndRepo,
-      }),
-      role: amplifyRole.withoutPolicyUpdates(),
-    });
+    const feedbackFrontendApp = new amplify.App(
+      this,
+      Constants.amplify_app_name,
+      {
+        sourceCodeProvider: new amplify.CodeCommitSourceCodeProvider({
+          repository: feedbackAppFrontEndRepo,
+        }),
+        role: amplifyRole.withoutPolicyUpdates(),
+      }
+    );
 
     amplifyRole.addToPolicy(
       new iam.PolicyStatement({
