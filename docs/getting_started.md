@@ -12,15 +12,15 @@ The following steps can be used to deploy the frontend:
 
 - **`cd aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/`**
 
-3. Install the packages required by the CDK Application
+3. Install the packages required by the CDK Application (ignore any the warnings)
 
-- **`npm install`** (ignore any the warnings)
+- **`npm install`**
 
 4. Build the CDK Application
 
 - **`npm run build`**
 
-5. Deploy the CDK Application (Note: ensure there are no duplicates in the resource names otherwise change the names in the file /feedback-app-frontend/amplify-infra-code/global/constant.json )
+5. Deploy the CDK Application (Note: Ensure there is no existing AWS resource with the same name specified in the file aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/global/constant.json )
 
 - **`cdk deploy --require-approval never`**
 
