@@ -20,6 +20,10 @@ This is a high-level view of the feedback application indicating both the fronte
 
 ### Technologies used
 
+**Frontend App Hosting**:
+
+- [AWS Amplify](https://aws.amazon.com/amplify/) for hosting the frontend React JS application. Amplify provides the storage and global content distribtion together with a CI/CD pipeline to deploy new changes to the frontend.
+
 **API Hosting**:
 
 - [Amazon API Gateway](https://aws.amazon.com/api-gateway/) for service-to-service synchronous communication (request/response).
@@ -31,6 +35,10 @@ This is a high-level view of the feedback application indicating both the fronte
 **Compute**:
 
 - [AWS Lambda](https://aws.amazon.com/lambda/) as serverless compute either behind APIs or to react to asynchronous events.
+
+**Microservice Orchestration**:
+
+- [AWS Step Functions](https://aws.amazon.com/step-functions/) used to orchestrate the serverless function that makes it easy to sequence AWS Lambda functions and multiple AWS services into business-critical applications.
 
 **Storage**:
 
@@ -47,6 +55,18 @@ This is a high-level view of the feedback application indicating both the fronte
 
 - [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) for metrics, dashboards, log aggregation.
 - [AWS X-Ray](https://aws.amazon.com/xray/) for tracing across AWS services and across microservices.
+
+**Sentiment Analysis**:
+
+- [Amazon Comprehend](https://aws.amazon.com/comprehend/) a natural language processing (NLP) service that uses machine learning to find insights and relationships in text. The service is used for sentiment analysis of the feedback comments to identify if the comments are POSITIVE, NEGATIVE OR NEUTRAL
+
+**Notification**:
+
+- [Amazon Chime](https://aws.amazon.com/chime/) used for notifying the managers on a managers only chime chat room once a new feedback is submitted by employees
+
+**Key Value Store**:
+
+- [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore.html) used for storing the Chime WebHook url for the managers chime chat room
 
 ## Documentation
 
