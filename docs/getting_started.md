@@ -22,9 +22,7 @@ The following steps can be used to deploy the frontend:
 
 5. Deploy the CDK Application
 
-- **`cdk deploy --require-approval never/`**
-
-(Note: ensure there are no duplicates in the resource names otherwise change the names in the file /feedback-app-frontend/amplify-infra-code/global/constant.json )
+- **`cdk deploy --require-approval never/`** (Note: ensure there are no duplicates in the resource names otherwise change the names in the file /feedback-app-frontend/amplify-infra-code/global/constant.json )
 
 6. Navigate back to the feedback-app-frontend folder
 
