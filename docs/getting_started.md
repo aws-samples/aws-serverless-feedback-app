@@ -1,40 +1,39 @@
-Getting started
-===============
+# Getting started
 
-If you are experience an issue while setting up this project, please take a look at the [Common issues](common_issues.md) section of the documentation. If you cannot find a solution to your problem there, please [create a ticket](https://github.com/aws-samples/aws-serverless-ecommerce-platform/issues/new) explaining the issue that you are experiencing and the steps to reproduce it.
+## Setting up the Frontend
 
-## Setup the development environment
+The following steps can be used to deploy the frontend:
 
-To set up the development environment, you will need to install __pyenv__ on your computer. You can find installation instruction at [https://github.com/pyenv/pyenv#installation](https://github.com/pyenv/pyenv#installation). Please make sure that you have the [required tools and libraries](https://github.com/pyenv/pyenv/wiki/Common-build-problems) installed in your environment.
+1. Clone the aws-serverless-feedback-app project
 
-When __pyenv__ is installed, you can run `make setup` to configure the Python environment for this project, including development tools and dependencies.
+- **`git clone https://github.com/aws-samples/aws-serverless-feedback-app.git`**
 
-You will also need [Node](https://nodejs.org/en/) version 12 or greater, [jq](https://stedolan.github.io/jq/) and __md5sum__. __md5sum__ is not available by default on MacOS but can be installed through the [coreutils formula in homebrew](https://formulae.brew.sh/formula/coreutils).
+2. Navigate to the CDK Application to that will be used to create the following infrastructure: CodeCommit Repository (used as source repo) and AWS Amplify Application (used for hosting the frontend)
 
-## Deploy the infrastructure on AWS
+- **`cd aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/`**
 
-If you want to deploy the entire project into your AWS account in a dev environment, you can run the command `make all` in the [root](../) of this project. Please note that this will create an S3 bucket to store artifacts as part of the packaging step.
+3. Install the packages required by the CDK Application
 
-If you want to deploy only a specific service and its dependencies, you can use the command `make deps-${SERVICE}`.
+- **`npm install/`** (ignore any the warnings)
 
-These commands will lint, build, run unit tests, package, deploy and run integration tests on the services.
+4. Build the CDK Application
 
-### Deploy the production pipeline
+- **`npm run build/`**
 
-If you want to deploy a complete pipeline to a production environment, you can run `make bootstrap-pipeline`, which will deploy all services in all environments needed by the pipeline, the CI/CD pipeline itself and seed a CodeCommit repository with the latest commit from this repository.
+5. Deploy the CDK Application
 
-When you want to push modifications to AWS, you can run `git push aws HEAD:master`, which will push the latest commit from the current branch to the master branch in the CodeCommit repository.
+- **`cdk deploy --require-approval never/`**
 
-## Useful commands
+(Note: ensure there are no duplicates in the resource names otherwise change the names in the file /feedback-app-frontend/amplify-infra-code/global/constant.json )
 
-All the following commands can be run without the service name (e.g. `make tests-integ` to run integration tests for all services).
+6. Navigate back to the feedback-app-frontend folder
 
-* __`make ci-${SERVICE}`__ (e.g. make ci-products): lint, build and run unit tests for a specific service.
-* __`make all-${SERVICE}`__ (e.g. make all-orders): lint, build, run unit tests, package, deploy to AWS and run integration tests for a specific service.
-* __`make tests-unit-${SERVICE}`__: run unit tests for a service, useful when you had a bug in the unit tests but don't need to rebuild the Lambda functions.
-* __`make tests-integ-${SERVICE}`__: run integration tests for a service, for when you had a bug in the integration tests.
-* __`make tests-e2e`__: run end-to-end tests that check if the overall ordering workflows work as expected.
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend//`**
 
-## Creating or modifying a service
+7. Run the following git commands to commit code to the CodeCommit repository created in 5 above
 
-To read how you can create a new service or modify an existing one, please read the [service structure documentation](service_structure.md).
+- **`git init/`**
+- **`git add ./`**
+- **`git commit -m "first commit"/`**
+- **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-frontend/`**
+- **`git push -u codecommit master/`**
