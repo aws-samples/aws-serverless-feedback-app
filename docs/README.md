@@ -38,5 +38,8 @@
     </p>
   - Cost and Performance Tunning
     <p align="center">
+        <img src="images/lambda_power_tunning_input.png" alt="Cost Tunning Input"/>
+    </p>
+    <p align="center">
         <img src="images/cost_tunning.png" alt="Cost Tunning"/>
     </p>
