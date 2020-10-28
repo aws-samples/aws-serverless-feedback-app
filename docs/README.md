@@ -6,14 +6,14 @@
 
 ## How does it work?
 
-- [Deep Dive on the Frontend]
+- Deep Dive on the Frontend
 
   - Overview of Architecture
   - Development Framework
   - Infrastructure as Code
   - Hosting on AWS Amplify
 
-- [Deep Dive on the Backend]
+- Deep Dive on the Backend
 
   - Overview of Architecture
   - Integration with Chime
