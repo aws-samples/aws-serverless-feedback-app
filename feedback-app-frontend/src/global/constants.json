@@ -1,5 +1,5 @@
 {
-  "feedback_api_url": "https://ej3aoq3ohe.execute-api.us-east-1.amazonaws.com/Prod",
+  "feedback_api_url": "https://xxxx00x00.execute-api.eu-west-1.amazonaws.com/Prod",
   "submit_feedback_path": "/submit-feedback",
   "get_feedback_by_status_path": "/get-feedback-by-sharestatus",
   "parameter_for_public_feedback": "?sharestatus=true"
