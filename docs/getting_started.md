@@ -95,7 +95,7 @@ The following steps can be used to deploy the frontend:
 1. Navigate to the AWS Amplify Console from your AWS Console
 
 <p align="center">
-  <img src="docs/images/navigate_amplify.png" alt="Navigate to Amplify Console"/>
+  <img src="images/navigate_amplify.png" alt="Navigate to Amplify Console"/>
 </p>
 
 2. Click on the Amplify Application "feedback-app-frontend"
