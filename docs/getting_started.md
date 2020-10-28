@@ -93,3 +93,43 @@ The following steps can be used to deploy the frontend:
 ## Accessing the Application
 
 1. Navigate to the AWS Amplify Console from your AWS Console
+
+<p align="center">
+  <img src="docs/images/navigate_amplify.png" alt="Navigate to Amplify Console"/>
+</p>
+
+2. Click on the Amplify Application "feedback-app-frontend"
+
+<p align="center">
+  <img src="docs/images/select_feedback_app.png" alt="Select Amplify App"/>
+</p>
+
+3. Launch the Amplify Application
+
+<p align="center">
+  <img src="docs/images/open_amplify_app.png" alt="Launch Amplify App"/>
+</p>
+
+4. Submit a Feedback by filling out the feedback form and clicking the Submit button
+
+<p align="center">
+  <img src="docs/images/submit_feedback.png" alt="Submit Feedback"/>
+</p>
+
+5. Ensure you can see successful message "Feedback received... Thank You!" otherwise you will see the message "Oops! A little glitch can you try again please!" which indicates something went wrong
+
+<p align="center">
+  <img src="docs/images/submitted_feedback.png" alt="Successful Feedback Submission"/>
+</p>
+
+6. Navigate to the "Public Feedbacks" tab to see feedbacks that have been made public (by selecting "Share Feedback" during submission)
+
+<p align="center">
+  <img src="docs/images/public_feedbacks.png" alt="Public Feedback"/>
+</p>
+
+6. Navigate to the chime chat room to see the notification for a feedback submission
+
+<p align="center">
+  <img src="docs/images/manager_chime_room.png" alt="Chime Feedback Notification"/>
+</p>
