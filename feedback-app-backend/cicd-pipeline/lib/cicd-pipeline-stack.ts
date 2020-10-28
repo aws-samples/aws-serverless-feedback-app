@@ -4,6 +4,7 @@ import codecommit = require('@aws-cdk/aws-codecommit');
 import codepipeline = require('@aws-cdk/aws-codepipeline');
 import codepipeline_actions = require('@aws-cdk/aws-codepipeline-actions');
 import codebuild = require('@aws-cdk/aws-codebuild');
+import Constants from "../global/constants.json";
 
 export class CicdPipelineStack extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -12,9 +13,14 @@ export class CicdPipelineStack extends cdk.Stack {
     // The code that defines your stack goes here
     const artifactsBucket = new s3.Bucket(this, "ArtifactsBucket");
 
-    // Import existing CodeCommit feedback-app-repo repository
-    const codeRepo = codecommit.Repository.fromRepositoryName(
-      this, 'FeedbackAppRepository', 'feedback-app-repo'
+    // Creating a code commit repository for the feedback-app-backend
+    const feedbackAppBackendRepo = new codecommit.Repository(
+      this,
+      "FeedbackAppBackendRepo",
+      {
+        repositoryName: Constants.code_commit_repo_name,
+        description: "The repository for the frontend of the feedback app",
+      }
     );
 
     // Pipeline creation starts
@@ -31,7 +37,7 @@ export class CicdPipelineStack extends cdk.Stack {
       actions: [
         new codepipeline_actions.CodeCommitSourceAction({
           actionName: 'FeedbackApp_Source',
-          repository: codeRepo,
+          repository: feedbackAppBackendRepo,
           output: sourceOutput,
         }),
       ],
