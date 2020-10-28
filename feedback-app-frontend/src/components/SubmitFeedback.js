@@ -96,18 +96,18 @@ class SubmitFeedback extends Component {
             onChange={this.onRecipientChange}
             name="feedbackRecipient"
           >
-            <Option value="@tmaddox">@tmaddox</Option>
-            <Option value="@manager2">@manager2</Option>
-            <Option value="@manager3">@manager3</Option>
-            <Option value="@manager4">@manager4</Option>
-            <Option value="@allmanagers">@allmanagers</Option>
-            <Option value="@wholeteam">@wholeteam</Option>
+            <Option value="manager1@coy.com">manager1@coy.com</Option>
+            <Option value="manager2@coy.com">manager2@coy.com</Option>
+            <Option value="manager3@coy.com">manager3@coy.com</Option>
+            <Option value="manager4@coy.com">manager4@coy.com</Option>
+            <Option value="allmanagers@coy.com">allmanagers@coy.com</Option>
+            <Option value="wholeteam@coy.com">wholeteam@coy.com</Option>
           </Select>
         </Form.Item>
         <Form.Item name="feedbackSenderFormItem" label="From">
           <Input
             addonBefore="@"
-            placeholder="Please provide your amazon id"
+            placeholder="Please provide your email address"
             name="feedbackSender"
             onChange={this.onTextChange}
             value={this.state.feedbackSender}

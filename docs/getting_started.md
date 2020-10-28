@@ -1,47 +1,5 @@
 # Getting started
 
-## Setting up the Frontend
-
-The following steps can be used to deploy the frontend:
-
-1. Launch an AWS Cloud9 environment following the instructions in the link below
-
-- [Launch AWS Cloud9 Environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html) (Note: While creating the Cloud9 Environment, complete Step 1 and use default settings for Step 2 and Step 3)
-
-2. Clone the aws-serverless-feedback-app project
-
-- **`git clone https://github.com/aws-samples/aws-serverless-feedback-app.git`**
-
-3. Navigate to the CDK Application to that will be used to create the following infrastructure: CodeCommit Repository (used as source repo) and AWS Amplify Application (used for hosting the frontend)
-
-- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/`**
-
-4. Install the packages required by the CDK Application (ignore any the warnings)
-
-- **`npm install`**
-
-5. Build the CDK Application
-
-- **`npm run build`**
-
-6. Deploy the CDK Application (Note: Ensure there is no existing AWS resource with the same name specified in the file aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/global/constant.json )
-
-- **`cdk deploy --require-approval never`**
-
-7. Navigate back to the feedback-app-frontend folder
-
-- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/`**
-
-8. Run the following git commands to commit code to the CodeCommit repository created in 5 above
-
-- **`git init`**
-- **`git add .`**
-- **`git commit -m "first commit"`**
-- **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-frontend`**
-- **`git push -u codecommit master`**
-
-##
-
 ## Setting up the Backend
 
 The following steps can be used to deploy the frontend:
@@ -81,3 +39,57 @@ The following steps can be used to deploy the frontend:
 - **`git commit -m "first commit"`**
 - **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-backend`**
 - **`git push -u codecommit master`**
+
+9. Identify the url for the API Gateway (Note: The API gateway will take some time to be created after committing the code so run the command multiple times until the API name is visible)
+
+- **`aws apigateway get-rest-apis`**
+  From the response look for the API with the name "feedback-app-backend-api" and identify the corresponding API ID. Replace the API ID and the corresondpong AWS region in the URL "https://[api_id].execute-api.[aws_region].amazonaws.com/Prod/". This will be the feedback app backend api for example https://xxxx00x00.execute-api.eu-west-1.amazonaws.com/Prod (this api endpoint does not exist)
+
+## Setting up the Frontend
+
+The following steps can be used to deploy the frontend:
+
+1. Launch an AWS Cloud9 environment following the instructions in the link below
+
+- [Launch AWS Cloud9 Environment](https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html) (Note: While creating the Cloud9 Environment, complete Step 1 and use default settings for Step 2 and Step 3)
+
+2. Clone the aws-serverless-feedback-app project
+
+- **`git clone https://github.com/aws-samples/aws-serverless-feedback-app.git`**
+
+3. Navigate to the CDK Application to that will be used to create the following infrastructure: CodeCommit Repository (used as source repo) and AWS Amplify Application (used for hosting the frontend)
+
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/`**
+
+4. Install the packages required by the CDK Application (ignore any the warnings)
+
+- **`npm install`**
+
+5. Build the CDK Application
+
+- **`npm run build`**
+
+6. Deploy the CDK Application (Note: Ensure there is no existing AWS resource with the same name specified in the file aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/global/constant.json )
+
+- **`cdk deploy --require-approval never`**
+
+7. Update the Backend API URL in the "constants.json" file
+
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/src/global`**
+
+8. Navigate back to the feedback-app-frontend folder
+
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/`**
+- **`vim constants.json`** (Update the value for "feedback_api_url" retrieved while setting up the backend (Step 9 above) and save the file)
+
+9. Run the following git commands to commit code to the CodeCommit repository created in 5 above
+
+- **`git init`**
+- **`git add .`**
+- **`git commit -m "first commit"`**
+- **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-frontend`**
+- **`git push -u codecommit master`**
+
+## Accessing the Application
+
+1. Navigate to the AWS Amplify Console from your AWS Console

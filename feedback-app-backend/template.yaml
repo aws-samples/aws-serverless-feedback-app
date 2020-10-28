@@ -178,7 +178,7 @@ Resources:
       Name: feedback-app-chime-webhook-url
       Description: "parameter store for webhook urls to send feedback notifications"
       Type: String
-      Value: https://hooks.chime.aws/incomingwebhooks/d19c9ba7-e9ee-4d49-be1b-18c784616de1?token=N3ZzWmhpczB8MXx6clhpZXpmS3dyY2JsLTI1Ymx5ZUxWUnVzcEZ0djBERXdLenRBb1Mxcm1z
+      Value: https://hooks.chime.aws/incomingwebhooks/replace_with_your_chime_webhook_url_details
 
 Outputs:
   ServiceApi:
