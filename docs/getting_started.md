@@ -40,6 +40,8 @@ The following steps can be used to deploy the frontend:
 - **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-frontend`**
 - **`git push -u codecommit master`**
 
+##
+
 ## Setting up the Backend
 
 The following steps can be used to deploy the frontend:
