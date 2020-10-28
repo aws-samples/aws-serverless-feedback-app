@@ -70,11 +70,13 @@ This is a high-level view of the feedback application indicating both the fronte
 
 ## Documentation
 
-See the [docs](docs/) folder for the documentation.
+To get started, see the [getting started guide](docs/getting_started.md) to setup the project
+
+A detailed documentation of the app can be found in the [docs](docs/) folder
 
 ## Contributing
 
-See the [contributing](CONTRIBUTING.md) and [getting started](docs/getting_started.md) documents to learn how to contribute to this project.
+See the [contributing](CONTRIBUTING.md)
 
 ## License
 
