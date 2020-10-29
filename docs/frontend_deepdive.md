@@ -14,6 +14,71 @@
 
   - #### Invoking the Backend API
 
+    To invoke the backend API, ensure the API url is setup correctly in the [constants.json]() file. The details of how to retrieve the url to use is explained in the [getting started guide](). The backend API is invoked to 1) Submit a new feedback and 2) Retrieve public feedbacks. The code snippet below shows how the api is invoked within the [SubmitFeedback.js]() and [PublicFeedback.js]() files.
+
+    **`SubmitFeedback.js`**
+
+    ```javascript
+    onFinish = (values) => {
+      console.log(values);
+      axios
+        .post(
+          Constants.feedback_api_url + Constants.submit_feedback_path,
+          {
+            feedback_recepient: values.feedbackRecipientFormItem,
+            feedback_text: values.feedbackTextFormItem,
+            feedback_sender:
+              values.feedbackSenderFormItem === ""
+                ? "anonymous"
+                : "@" + values.feedbackSenderFormItem,
+            feedback_situation: values.feedbackSituationFormItem,
+            feedback_behaviour: values.feedbackBehaviourFormItem,
+            feedback_impact: values.feedbackImpactFormItem,
+            share_feedback:
+              this.state.shareFeedback === true ? "true" : "false",
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          console.log("successfully added feedback");
+          message.success("Feedback received... Thank You!");
+          this.formRef.current.resetFields();
+        })
+        .catch((err) => {
+          console.log("error saving to database");
+          message.error("Oops! A little glitch can you try again please!");
+        });
+    };
+    ```
+
+    **`PublicFeedback.js`**
+
+    ```javascript
+        constructor(props) {
+            super(props);
+            axios
+            .get(
+                Constants.feedback_api_url +
+                Constants.get_feedback_by_status_path +
+                Constants.parameter_for_public_feedback
+            )
+            .then((res) => {
+                this.setState({ publicFeedbacks: res.data });
+                this.populateTable();
+            })
+            .catch((err) => {
+                message.error(
+                "Oops! A little glitch retrieving feedbacks. Try again please!"
+                );
+                console.log(err);
+            });
+        }
+    ```
+
   - #### Infrastructure as Code
 
     The AWS resources used to deploy the frontend application is managed using [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/). AWS CDK is an open source software development framework which can be used to model and provision your cloud application resources using familiar programming languages, including TypeScript, JavaScript, Python, C# and Java.
