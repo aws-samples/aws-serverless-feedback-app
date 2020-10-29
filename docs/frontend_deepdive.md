@@ -14,7 +14,7 @@
 
   - #### Invoking the Backend API
 
-    To invoke the backend API, ensure the API url is setup correctly in the [constants.json](../feedback-app-frontend/src/global) file. The details of how to retrieve the url to use is explained in the [getting started guide](getting_started.md). The backend API is invoked to 1) Submit a new feedback and 2) Retrieve public feedbacks. The code snippet below shows how the api is invoked within the [SubmitFeedback.js](../feedback-app-frontend/src/components) and [PublicFeedback.js](../feedback-app-frontend/src/components) files.
+    To invoke the backend API, ensure the API url is setup correctly in the [constants.json](../feedback-app-frontend/src/global/constants.json) file. The details of how to retrieve the url to use is explained in the [getting started guide](getting_started.md). The backend API is invoked to 1) Submit a new feedback and 2) Retrieve public feedbacks. The code snippet below shows how the api is invoked within the [SubmitFeedback.js](../feedback-app-frontend/src/components/SubmitFeedback.js) and [PublicFeedback.js](../feedback-app-frontend/src/components/PublicFeedback.js) files.
 
     **`SubmitFeedback.js`**
 
