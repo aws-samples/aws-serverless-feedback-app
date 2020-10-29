@@ -21,7 +21,7 @@
 - Infrastructure as Code
   The AWS resources used to deploy the frontend application is managed using [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/). AWS CDK is an open source software development framework which can be used to model and provision your cloud application resources using familiar programming languages, including TypeScript, JavaScript, Python, C# and Java. For the example in this blog, we will be using Typescript.
 
-  Setting up the frontend application starts with deploying the CDK application to create the CodeCommit repository and the Amplify application. One of the key configuration while creating the Amplify application via CDK is to setup the CodeCommit repository as the source code provider for the Amplify application. This will ensure that any code committed to the repository triggers the Amplify managed CI/CD pipeline to deploy the changes. The CDK application source code can be found [here](feedback-app-frontend/amplify-infra-code/)
+  Setting up the frontend application starts with deploying the CDK application to create the CodeCommit repository and the Amplify application. One of the key configuration while creating the Amplify application via CDK is to setup the CodeCommit repository as the source code provider for the Amplify application. This will ensure that any code committed to the repository triggers the Amplify managed CI/CD pipeline to deploy the changes. The CDK application source code can be found [here](../feedback-app-frontend/amplify-infra-code/)
 
 - Deep Dive on the Backend
 
