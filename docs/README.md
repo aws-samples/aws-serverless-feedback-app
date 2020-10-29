@@ -6,7 +6,7 @@
 
 ## How does it work?
 
-- # Deep Dive on the Frontend
+- ### Deep Dive on the Frontend
 
   - Overview of Architecture
     The frontend is a [React](https://reactjs.org/) application and the UI developed with [Ant Design](https://ant.design/). AWS CodeCommit and AWS Amplify are the two services used for source control and application hosting respectively. Once a code is committed to CodeCommit via `git push`, Amplify automatically forks the code from the repository and triggers a CI/CD pipeline fully managed by Amplify to deploy the changes. The build settings for the CI/CD pipeline can be specified in an "amplify.yml" file stored in the root folder of the repository.
