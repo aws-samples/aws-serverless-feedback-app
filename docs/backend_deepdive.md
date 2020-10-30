@@ -25,7 +25,7 @@
 
   - #### Integration with Chime
 
-    Follow the instruction [here](https://docs.aws.amazon.com/chime/latest/ug/webhooks.html) to create a webhook for a chime room. The webhook URL is stored in AWS Paramter Store, a default value (which needs to be updated) is specified in the SAM template [here](../feedback-app-backend/template.yaml). Update the SAM template with the webhook URL and run the commands below to build and deploy the changes.
+    Follow the instruction [here](https://docs.aws.amazon.com/chime/latest/ug/webhooks.html) to create a webhook for a chime room. The webhook URL is stored in AWS Paramter Store, a default value (which needs to be updated) is specified in the SAM template [here](../feedback-app-backend/template.yaml) within the "WebhookURLSSMParameter" resource. Update the SAM template with the webhook URL and run the commands below to build and deploy the changes.
 
     - **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-backend/`**
     - **`sam build`**
@@ -34,23 +34,27 @@
     - **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-backend`**
     - **`git push -u codecommit master`**
 
-    The template for the markdown formatting to display the notification as show below can be found [here](../feedback-app-backend/webhooknotification-service/resources/chime_message_template.txt)
+    The webhook url is retrieved from parameter store within the lambda function by using the SSM Paramater Store SDK. The template for the markdown formatting to display the notification as shown below can be found [here](../feedback-app-backend/webhooknotification-service/resources/chime_message_template.txt)
 
     <p align="center">
         <img src="images/manager_chime_room.png" alt="Chime Room Notification"/>
     </p>
 
-  - Integration with Parameter Store
-  - Infrastructure as Code
-  - CI/CID Pipeline
+  - #### Infrastructure as Code
+
+  - #### CI/CID Pipeline
+
     <p align="center">
         <img src="images/backend_dev_pipeline.png" alt="Backend Dev Pipeline"/>
     </p>
-  - Logging and Monitoring
+
+  - #### Logging and Monitoring
+
     <p align="center">
         <img src="images/backend-x-ray-tracing.png" alt="Logging and Monitoring"/>
     </p>
-  - Cost and Performance Tunning
+
+  - #### Cost and Performance Tunning
     <p align="center">
         <img src="images/lambda_power_tunning_input.png" alt="Cost Tunning Input"/>
     </p>
