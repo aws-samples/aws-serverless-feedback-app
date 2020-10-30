@@ -23,7 +23,23 @@
 
     The public feedbacks are the feedbacks that the employee have indicated can be shared while submitting the feedback. A Global Secondary Index is created in DynamoDB with the share_feedback attribute set as the partition key. Using DynamoDB SDK, a call is made to the database to retrieve the public feedbacks.
 
-  - Integration with Chime
+  - #### Integration with Chime
+
+    Follow the instruction [here](https://docs.aws.amazon.com/chime/latest/ug/webhooks.html) to create a webhook for a chime room. The webhook URL is stored in AWS Paramter Store, a default value (which needs to be updated) is specified in the SAM template [here](../feedback-app-backend/template.yaml). Update the SAM template with the webhook URL and run the commands below to build and deploy the changes.
+
+    - **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-backend/`**
+    - **`sam build`**
+    - **`git add .`**
+    - **`git commit -m "updated webhook url"`**
+    - **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-backend`**
+    - **`git push -u codecommit master`**
+
+    The template for the markdown formatting to display the notification as show below can be found [here](../feedback-app-backend/webhooknotification-service/resources/chime_message_template.txt)
+
+    <p align="center">
+        <img src="images/manager_chime_room.png" alt="Chime Room Notification"/>
+    </p>
+
   - Integration with Parameter Store
   - Infrastructure as Code
   - CI/CID Pipeline
