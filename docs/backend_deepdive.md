@@ -56,9 +56,9 @@
 
   - #### Logging and Monitoring
 
-    Logging and Monitoring is achieved through AWS CloudWatch and AWS X-Ray. One of the benefits of using SAM is that it automatically creates a CloudWatch Dashboard with metrics for of the serveless resource in the SAM template. It also provides insights for each of the lambda function. You can view these metrics and insights by navigating to the SAM application on the AWS console.
+    Logging and Monitoring is achieved through [AWS CloudWatch](https://aws.amazon.com/cloudwatch/) and [AWS X-Ray](https://aws.amazon.com/xray/). One of the benefits of using SAM is that it automatically creates a CloudWatch Dashboard with metrics for of the serveless resource in the SAM template. It also provides insights for each of the lambda function. You can view these metrics and insights by navigating to the SAM application on the AWS console.
 
-    Tracing is achieved with AWS X-Ray which is configured by enabling tracing within the SAM template for the API Gateay, Lambda Functions, Step Function. X-Ray provides service maps that show information about the API and all of its downstream services as shown below. From the service map, you can zoom in to see a trace view of your API stage. The trace will display in-depth information regarding your API, represented as segments and subsegments.
+    Tracing is achieved with AWS X-Ray which is configured by enabling tracing in the SAM template for the API Gateway, Lambda Functions, Step Function. X-Ray provides service maps that show information about the API and all of its downstream services as shown below. From the service map, you can zoom in to see a trace view of your API stage. The trace will display in-depth information regarding your API, represented as segments and subsegments.
 
     <p align="center">
         <img src="images/backend-x-ray-tracing.png" alt="Logging and Monitoring"/>
