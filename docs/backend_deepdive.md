@@ -42,11 +42,17 @@
 
   - #### Infrastructure as Code
 
-  - #### CI/CID Pipeline
+    The backend resources which include: API Gateway, Step Machine, Lambda Functions, DynamoDB and Parameter in Parameter Store are created using [AWS Serverless Application Model (SAM)](https://aws.amazon.com/serverless/sam/). Given this is a simple web application that leverages AWS serverless services, AWS SAM is a good fit that makes it easier to create these resources in yaml and easily deploy the resources to AWS. AWS SAM also provide local testing using SAM local to test the serverless app on a local machine prior to deploying to AWS. The template that defines the configuration of these resources can be found [here](../feedback-app-backend/template.yaml).
+
+    The resources for the CI/CD pipeline which includes AWS CodeCommit, AWS CodePipeline, AWS CodeBuild and AWS CodeDeploy were created with [AWS Cloud Development Kit](https://aws.amazon.com/cdk/). Using a familiar programming language like Typescript (as against using yaml), these resources can be created and configured as specified in the file [here](../feedback-app-backend/cicd-pipeline/lib/cicd-pipeline-stack.ts).
+
+  - #### CI/CD Pipeline
 
     <p align="center">
         <img src="images/backend_dev_pipeline.png" alt="Backend Dev Pipeline"/>
     </p>
+
+    The CI/CD pipeline is used to automate the build, test and deployment of the infrastructure resources and lambda functions for the backend. The pipeline is triggered by committing code to the CodeCommit repository where the CodePipeline kicks off the building of the sam template as specified [here](../feedback-app-backend/buildspec.yaml) using AWS CodeBuild. AWS CodeDeploy is used to deploy the artifacts as a CloudFormation stack. This deployment will create the AWS resources including the lambda function with source codes.
 
   - #### Logging and Monitoring
 
