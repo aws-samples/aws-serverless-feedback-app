@@ -77,11 +77,13 @@
     - Whether to initate the lambda functions in parallel
     - The strategy to test which in this case is minimum cost
 
-    Other parameters can be provided as specified in the documentation.
+    Other parameters can be provided as specified in the [documentation](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:451282441545:applications~aws-lambda-power-tuning).
 
     <p align="center">
         <img src="images/lambda_power_tunning_input.png" alt="Cost Tunning Input"/>
     </p>
+
+    The digram below shows the output from running the tool on the four lambda functions used in the application. It can be seen that 256MB is the memory configuration that will give the minimum cost for SentimentAnalysisServiceFunction, WebHookNotificationServiceFunction, GetFeedabackByShareStatusServiceFunction while for StoreFeedbackServiceFunction, 1024MB is the memory configuration that will give the minimum cost. The tools also provide the memory setting that will result in underutilization (worst cost)
 
     <p align="center">
         <img src="images/cost_tunning.png" alt="Cost Tunning"/>
