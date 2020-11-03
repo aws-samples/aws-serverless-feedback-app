@@ -1,6 +1,6 @@
 # Getting started
 
-## Setting up the Backend
+## Step 1 - Setting up the Backend
 
 The following steps can be used to deploy the frontend:
 
@@ -45,7 +45,7 @@ The following steps can be used to deploy the frontend:
 - **`aws apigateway get-rest-apis`**
   From the response look for the API with the name "feedback-app-backend-api" and identify the corresponding API ID. Replace the API ID and the corresondpong AWS region in the URL "https://[api_id].execute-api.[aws_region].amazonaws.com/Prod/". This will be the feedback app backend api and will be used while setting up the frontend.
 
-## Setting up the Frontend
+## Step 2 - Setting up the Frontend
 
 The following steps can be used to deploy the **frontend after setting up the backend**:
 
