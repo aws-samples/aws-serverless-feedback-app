@@ -70,7 +70,7 @@ The following steps can be used to deploy the **frontend after setting up the ba
 
 - **`cdk deploy --require-approval never`**
 
-6. Navigate back to the feedback-app-backend folder
+6. Navigate back to the feedback-app-frontend folder
 
 - **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend`**
 
