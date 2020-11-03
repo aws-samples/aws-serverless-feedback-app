@@ -49,9 +49,9 @@ The following steps can be used to deploy the frontend:
 
 The following steps can be used to deploy the **frontend after setting up the backend**:
 
-1. Update the Backend API URL
+1. Update the Backend API URL in the "constants.json" file
 
-- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/`**
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/src/global`**
 - **`vim constants.json`** (Update the value for "feedback_api_url" retrieved while setting up the backend and save the file)
 
 2. Navigate to the CDK Application to that will be used to create the following infrastructure: CodeCommit Repository (used as source repo) and AWS Amplify Application (used for hosting the frontend)
@@ -70,11 +70,7 @@ The following steps can be used to deploy the **frontend after setting up the ba
 
 - **`cdk deploy --require-approval never`**
 
-6. Update the Backend API URL in the "constants.json" file
-
-- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/src/global`**
-
-7. Run the following git commands to commit code to the CodeCommit repository created in 5 above
+6. Run the following git commands to commit code to the CodeCommit repository created in 5 above
 
 - **`git init`**
 - **`git add .`**
