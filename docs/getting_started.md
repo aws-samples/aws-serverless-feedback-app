@@ -147,9 +147,9 @@ The following steps can be used to deploy the **frontend after setting up the ba
 2. Delete the backend CI/CD pipeline
 
 - **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-backend/cicd-pipeline/`**
-- **`cdk destory`**
+- **`cdk destroy`**
 
 3. Delete the frontend resources
 
 - **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/`**
-- **`cdk destory`**
+- **`cdk destroy`**
