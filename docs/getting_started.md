@@ -127,3 +127,17 @@ The following steps can be used to deploy the **frontend after setting up the ba
 </p>
 
 ## Step 4 - Clean Up
+
+1. Delete the backend resources deployed by the SAM template (via the CI/CD pipeline)
+
+- **`aws cloudformation delete-stack --stack-name feedback-app-backend`**
+
+2. Delete the backend CI/CD pipeline
+
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-backend/cicd-pipeline/`**
+- **`cdk destory`**
+
+3. Delete the frontend resources
+
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/`**
+- **`cdk destory`**
