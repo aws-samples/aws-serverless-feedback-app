@@ -2,13 +2,13 @@
 
 ## Contents
 
-- ### Step 1 - Setting up the Backend
+- Step 1 - Setting up the Backend
 
-- ### Step 2 - Setting up the Frontend
+- Step 2 - Setting up the Frontend
 
-- ### Step 3 - Accessing the Application
+- Step 3 - Accessing the Application
 
-- ### Step 4 - Clean Up
+- Step 4 - Clean Up
 
 ###
 
