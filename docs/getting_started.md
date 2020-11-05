@@ -1,5 +1,15 @@
 # Getting started
 
+## Contents
+
+### Step 1 - Setting up the Backend
+
+### Step 2 - Setting up the Frontend
+
+### Step 3 - Accessing the Application
+
+### Step 4 - Clean Up
+
 ## Step 1 - Setting up the Backend
 
 The following steps can be used to deploy the frontend:
