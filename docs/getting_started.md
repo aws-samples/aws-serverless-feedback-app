@@ -40,7 +40,7 @@ The following steps can be used to deploy the frontend:
 - **`git remote add codecommit codecommit::{region}://feedback-app-repo-backend`**
 - **`git push -u codecommit master`**
 
-9. Identify the url for the API Gateway (Note: The API gateway will take some time to be created after committing the code so run the command multiple times until the API name is visible)
+9. Identify the url for the API Gateway (Note: The API gateway will take some time (approx. 5 mins) to be created after committing the code so run the command multiple times until the API name is visible)
 
 - **`aws apigateway get-rest-apis`**
   From the response look for the API with the name "feedback-app-backend-api" and identify the corresponding API ID. Replace the API ID and the corresondpong AWS region in the URL "https://[api_id].execute-api.[aws_region].amazonaws.com/Prod/". This will be the feedback app backend api and will be used while setting up the frontend.
@@ -79,10 +79,10 @@ The following steps can be used to deploy the **frontend after setting up the ba
 - **`git init`**
 - **`git add .`**
 - **`git commit -m "first commit"`**
-- **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-frontend`**
+- **`git remote add codecommit codecommit::{region}://feedback-app-repo-frontend`**
 - **`git push -u codecommit master`**
 
-## Accessing the Application
+## Step 3 - Accessing the Application
 
 1. Navigate to the AWS Amplify Console from your AWS Console
 
@@ -125,3 +125,5 @@ The following steps can be used to deploy the **frontend after setting up the ba
 <p align="center">
   <img src="images/manager_chime_room.png" alt="Chime Feedback Notification"/>
 </p>
+
+## Step 4 - Clean Up
