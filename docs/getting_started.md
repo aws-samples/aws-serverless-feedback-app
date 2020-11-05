@@ -49,7 +49,7 @@ The following steps can be used to deploy the frontend:
 - **`git init`**
 - **`git add .`**
 - **`git commit -m "first commit"`**
-- **`git remote add codecommit codecommit::{region}://feedback-app-repo-backend`**
+- **`git remote add codecommit codecommit::<div class="text-white bg-red mb-2">{region}</div>://feedback-app-repo-backend`**
 - **`git push -u codecommit master`**
 
 9. Identify the url for the API Gateway (Note: The API gateway will take some time (approx. 5 mins) to be created after committing the code so run the command multiple times until the API name is visible)
