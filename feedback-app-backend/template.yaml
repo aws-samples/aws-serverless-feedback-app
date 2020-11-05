@@ -7,12 +7,6 @@ Globals:
     MemorySize: 128
     Timeout: 100
     Tracing: Active
-  Api:
-    Cors:
-      AllowMethods: "'POST,GET,OPTIONS'"
-      AllowHeaders: "'Content-Type,x-requested-with,Access-Control-Allow-Origin,Access-Control-Allow-Headers,Access-Control-Allow-Methods'"
-      AllowOrigin: "'*'"
-      AllowCredentials: False
 
 Resources:
   FeedbackStateMachine:
@@ -55,10 +49,8 @@ Resources:
     Properties:
       StageName: Prod
       Cors:
-        AllowMethods: "'POST,GET,OPTIONS'"
-        AllowHeaders: "'Content-Type,x-requested-with,Access-Control-Allow-Origin,Access-Control-Allow-Headers,Access-Control-Allow-Methods'"
+        AllowMethods: "'POST, GET, OPTIONS'"
         AllowOrigin: "'*'"
-        AllowCredentials: False
       EndpointConfiguration: EDGE
       Name: feedback-app-backend-api
       TracingEnabled: True
