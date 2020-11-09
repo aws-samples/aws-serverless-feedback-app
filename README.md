@@ -87,6 +87,8 @@ To get started, see the [getting started guide](docs/getting_started.md) to setu
 
 A detailed documentation of the app can be found in the [docs](docs/) folder
 
+The list of known issues is maintained [here](docs/known_issues.md)
+
 ## Contributing
 
 See the [contributing](CONTRIBUTING.md)
