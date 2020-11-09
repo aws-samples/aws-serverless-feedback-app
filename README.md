@@ -2,7 +2,7 @@
 
 **Status**: _Completed. Please create issues or pull requests if you have ideas for improvement._
 
-The **Serverless Feedback App** is a simple web application that was developed to provide a mechanism for employees to provide feedback to their managers. Given the COVID-19 global pandemic and with remote working becoming the norm, managers need a way to get feedback from their direct reports anytime from anywhere to ensure employees are supported and engaged. There are so many ways of building an app like this on AWS so the key aim is to showcase how some of the AWS serverless services have been used to develop this app which hopefully will help educate and provide guidance on how to use these services for developing other use cases.
+The **Serverless Feedback App** is a simple web application that was developed to provide a mechanism for employees to provide feedback to their managers. Given the COVID-19 global pandemic and with remote working becoming the norm, managers need a way to get feedback from their direct reports anytime from anywhere to ensure employees are supported and engaged. There are so many ways of building an app like this on AWS so the key aim is to showcase how some of the AWS serverless services have been used to develop this app which hopefully will help educate and provide guidance on how to use these services for developing serverless applications.
 
 **Key Learning Areas**
 
