@@ -4,7 +4,7 @@
 
     - #### Resolution
 
-    **`1. Navigate to the API Gateway Console`**
+    1. Navigate to the API Gateway Console
     <p align="center">
       <img src="images/cors_001.png" alt="API"/>
     </p>
