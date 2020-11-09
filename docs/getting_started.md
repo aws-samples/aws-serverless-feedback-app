@@ -98,7 +98,7 @@ The following steps can be used to deploy the **frontend after setting up the ba
 
 ### Option 1 - Via AWS CLI
 
-1. Run the command below to list out all the AWS Amplify Apps
+1. Run the command below to list out all the AWS Amplify Apps. Notes: This will take about 4 mins to deploy the Amplify Application
 
 - **`aws amplify list-apps`**
 
