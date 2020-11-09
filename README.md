@@ -2,7 +2,7 @@
 
 **Status**: _Completed. Please create issues or pull requests if you have ideas for improvement._
 
-The **Serverless Feedback App** is a simple two page web application that was developed to provide a mechanism for employees to provide feedback to their managers. Given the COVID-19 global pandemic and with remote working becoming the norm, managers are keen to get feedback from their direct reports to be able to act on them and ensure issues are addressed and employess engaged. There are so many ways of building an app like this on AWS so the key aim is to showcase how some of the AWS serverless services have been used to develop the app which hopefully will help educate or provide guidance on how to use these services for developing other use cases.
+The **Serverless Feedback App** is a simple web application that was developed to provide a mechanism for employees to provide feedback to their managers. Given the COVID-19 global pandemic and with remote working becoming the norm, managers are keen to get feedback from their direct reports to be able to act on them and ensure issues are addressed and employess engaged. There are so many ways of building an app like this on AWS so the key aim is to showcase how some of the AWS serverless services have been used to develop the app which hopefully will help educate or provide guidance on how to use these services for developing other use cases.
 
 **Key Learning Areas**
 
@@ -10,7 +10,7 @@ The **Serverless Feedback App** is a simple two page web application that was de
 - Hosting a React App on AWS Amplify
 - Deploying a React App on AWS Amplify using AWS CDK
 - Building a Serverless Application with AWS SAM
-- Orchestrating Lambda Function with AWS Step Function
+- Orchestrating Lambda Functions with AWS Step Function
 - Sentiment Analysis with Amazon Comprehend SDK
 - Notification via Integration with Chime Webhooks
 - Building a CI/CD Pipeline with AWS CDK
