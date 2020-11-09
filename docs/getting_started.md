@@ -136,7 +136,7 @@ The following steps can be used to deploy the **frontend after setting up the ba
 
 2. Ensure you can see successful message "Feedback received... Thank You!" otherwise you will see the message "Oops! A little glitch can you try again please!" which indicates something went wrong
 
-Note: There is currently a known issue that when a feedback is submitted, the transaction is completed successfully but still returns the message "Oops! A little glitch, can you try again please!". This is currently being worked on but to fix this for the time being, follow the instructions on the issues page [here](common_issues.md)
+Note: There is currently a known issue that when a feedback is submitted, the transaction is completed successfully but still returns the message "Oops! A little glitch, can you try again please!". This is currently being worked on but to fix this for the time being, follow the instructions on the issues page [here](known_issues.md)
 
 <p align="center">
   <img src="images/submitted_feedback.png" alt="Successful Feedback Submission"/>

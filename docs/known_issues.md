@@ -1,4 +1,4 @@
-- ### Common Issues
+- ### Known Issues
 
   - #### Error message "Oops! A little glitch, can you try again please!" returned while submitting a feedback
 
@@ -33,3 +33,9 @@
     <p align="center">
       <img src="images/cors_006.png" alt="API"/>
     </p>
+
+  - #### Clicking on the "Public Feedback" page does not display the list of submitted public feedbacks
+
+    - #### Resolution
+
+    1. Click on the "Public Feedback" page a number of times (2 or 3) to display the feedbacks
