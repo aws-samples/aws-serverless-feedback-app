@@ -1,9 +1,7 @@
 - ### Common Issues
 
   - #### Error message "Oops! A little glitch, can you try again please!" returned while submitting a feedback
-
-  #### Resolution
-
+    - #### Resolution
     <p align="center">
-    <img src="images/cors_001.png" alt="API"/>
-  </p>
+      <img src="images/cors_001.png" alt="API"/>
+    </p>
