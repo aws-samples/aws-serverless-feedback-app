@@ -154,7 +154,7 @@ Note: There is currently a known issue that when a feedback is submitted, the tr
 
 ## Step 4 - Clean Up
 
-1. Delete the backend resources deployed by the SAM template (via the CI/CD pipeline)
+1. Delete the backend resources deployed by the SAM template (via the CI/CD pipeline). This operation will take about 3 mins to complete and will need to be completed before the next step.
 
 - **`aws cloudformation delete-stack --stack-name feedback-app-backend`**
 
