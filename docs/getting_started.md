@@ -126,13 +126,15 @@ The following steps can be used to deploy the **frontend after setting up the ba
   <img src="images/open_amplify_app.png" alt="Launch Amplify App"/>
 </p>
 
-4. Submit a Feedback by filling out the feedback form and clicking the Submit button
+## Step 5 - Submitting and Viewing Feedbacks
+
+1. Submit a Feedback by filling out the feedback form and clicking the Submit button
 
 <p align="center">
   <img src="images/submit_feedback.png" alt="Submit Feedback"/>
 </p>
 
-5. Ensure you can see successful message "Feedback received... Thank You!" otherwise you will see the message "Oops! A little glitch can you try again please!" which indicates something went wrong
+2. Ensure you can see successful message "Feedback received... Thank You!" otherwise you will see the message "Oops! A little glitch can you try again please!" which indicates something went wrong
 
 Note: There is currently a known issue that when a feedback is submitted, the transaction is completed successfully but still returns the message "Oops! A little glitch, can you try again please!". This is currently being worked on but to fix this for the time being, follow the instructions on the issues page [here](common_issues.md)
 
@@ -140,19 +142,21 @@ Note: There is currently a known issue that when a feedback is submitted, the tr
   <img src="images/submitted_feedback.png" alt="Successful Feedback Submission"/>
 </p>
 
-6. Navigate to the "Public Feedbacks" tab to see feedbacks that have been made public (by selecting "Share Feedback" during submission)
+3. Navigate to the "Public Feedbacks" tab to see feedbacks that have been made public (by selecting "Share Feedback" during submission)
 
 <p align="center">
   <img src="images/public_feedbacks.png" alt="Public Feedback"/>
 </p>
 
-7. Navigate to the chime chat room to see the notification for a feedback submission
+4. Navigate to the chime chat room to see the notification for a feedback submission
+
+Note: To receive a message via Chime, follow the instructions [here](backend_deepdive.md) on Integration with Chime
 
 <p align="center">
   <img src="images/manager_chime_room.png" alt="Chime Feedback Notification"/>
 </p>
 
-## Step 4 - Clean Up
+## Step 5 - Clean Up
 
 1. Delete the backend resources deployed by the SAM template (via the CI/CD pipeline). This operation will take about 3 mins to complete and will need to be completed before the next step.
 
