@@ -51,6 +51,8 @@ Resources:
       Cors:
         AllowMethods: "'POST, GET, OPTIONS'"
         AllowOrigin: "'*'"
+        AllowHeaders: "'Content-Type,x-requested-with,Access-Control-Allow-Origin,Access-Control-Allow-Headers,Access-Control-Allow-Methods'"
+        AllowCredentials: False
       EndpointConfiguration: EDGE
       Name: feedback-app-backend-api
       TracingEnabled: True

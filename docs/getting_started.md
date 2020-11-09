@@ -96,6 +96,18 @@ The following steps can be used to deploy the **frontend after setting up the ba
 
 ## Step 3 - Accessing the Application
 
+### Option 1 - Via AWS CLI
+
+1. Run the command below to list out all the AWS Amplify Apps
+
+- **`aws amplify list-apps`**
+
+2. Identify the "defaultDomain" field of the app with the name "feedback-app-frontend" and navigate to the URL below on your browser
+
+- **`https://master.{defaultDoman}`**
+
+### Option 2 - Via AWS Console
+
 1. Navigate to the AWS Amplify Console from your AWS Console
 
 <p align="center">
@@ -121,6 +133,8 @@ The following steps can be used to deploy the **frontend after setting up the ba
 </p>
 
 5. Ensure you can see successful message "Feedback received... Thank You!" otherwise you will see the message "Oops! A little glitch can you try again please!" which indicates something went wrong
+
+Note: There is currently a known issue that when a feedback is submitted, the transaction is completed successfully but still returns the message "Oops! A little glitch, can you try again please!". This is currently being worked on but to fix this for the time being, follow the instructions on the issues page [here](common_issues.md)
 
 <p align="center">
   <img src="images/submitted_feedback.png" alt="Successful Feedback Submission"/>
