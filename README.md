@@ -59,7 +59,7 @@ This is a high-level view of the feedback application indicating both the fronte
 
 **CI/CD**:
 
-- [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/) for defining AWS resources as code in the [payment-3p](payment-3p/) service.
+- [AWS Cloud Development Kit (CDK)](https://aws.amazon.com/cdk/) for defining AWS resources as code.
 - [Amazon CodeCommit](https://aws.amazon.com/codecommit/) as a repository to trigger the CI/CD pipeline.
 - [Amazon CodeBuild](https://aws.amazon.com/codebuild/) for building artifacts for microservices.
 - [Amazon CodePipeline](https://aws.amazon.com/codepipeline/) for orchestrating the CI/CD pipeline to production.
