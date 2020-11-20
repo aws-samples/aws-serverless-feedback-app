@@ -63,6 +63,11 @@ The following steps can be used to deploy the **frontend after setting up the ba
 
 1. Update the Backend API URL in the "constants.json" file
 
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/`**
+- **`npm install`**
+
+1. Update the Backend API URL in the "constants.json" file
+
 - **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/src/global`**
 - **`vim constants.json`** (Update the value for "feedback_api_url" retrieved while setting up the backend and save the file)
 
