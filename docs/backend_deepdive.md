@@ -31,8 +31,7 @@
     - **`sam build`**
     - **`git add .`**
     - **`git commit -m "updated webhook url"`**
-    - **`git remote add codecommit codecommit::eu-west-1://feedback-app-repo-backend`**
-    - **`git push -u codecommit master`**
+    - **`git push -u codecommit main`**
 
     The webhook url is retrieved from parameter store within the lambda function by using the SSM Paramater Store SDK. The template for the markdown formatting to display the notification as shown below can be found [here](../feedback-app-backend/webhooknotification-service/resources/chime_message_template.txt)
 

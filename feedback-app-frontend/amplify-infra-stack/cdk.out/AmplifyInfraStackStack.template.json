@@ -1,0 +1,339 @@
+{
+  "Resources": {
+    "FeedbackAppFrontEndRepoB65C7B85": {
+      "Type": "AWS::CodeCommit::Repository",
+      "Properties": {
+        "RepositoryName": "feedback-app-repo-frontend",
+        "RepositoryDescription": "The repository for the frontend of the feedback app"
+      },
+      "Metadata": {
+        "aws:cdk:path": "AmplifyInfraStackStack/FeedbackAppFrontEndRepo/Resource"
+      }
+    },
+    "FeedbackAppFrontendAmplifyRoleA73DDBA5": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "amplify.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "Description": "The to be used by amplify to deploy the application",
+        "RoleName": "Feedback-App-Frontend-AmplifyRole"
+      },
+      "Metadata": {
+        "aws:cdk:path": "AmplifyInfraStackStack/Feedback-App-Frontend-AmplifyRole/Resource"
+      }
+    },
+    "FeedbackAppFrontendAmplifyRoleDefaultPolicyAFE08638": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "*",
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "FeedbackAppFrontendAmplifyRoleDefaultPolicyAFE08638",
+        "Roles": [
+          {
+            "Ref": "FeedbackAppFrontendAmplifyRoleA73DDBA5"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "AmplifyInfraStackStack/Feedback-App-Frontend-AmplifyRole/DefaultPolicy/Resource"
+      }
+    },
+    "feedbackappfrontend70602909": {
+      "Type": "AWS::Amplify::App",
+      "Properties": {
+        "Name": "feedback-app-frontend",
+        "BasicAuthConfig": {
+          "EnableBasicAuth": false
+        },
+        "IAMServiceRole": {
+          "Fn::GetAtt": [
+            "FeedbackAppFrontendAmplifyRoleA73DDBA5",
+            "Arn"
+          ]
+        },
+        "Repository": {
+          "Fn::GetAtt": [
+            "FeedbackAppFrontEndRepoB65C7B85",
+            "CloneUrlHttp"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "AmplifyInfraStackStack/feedback-app-frontend/Resource"
+      }
+    },
+    "feedbackappfrontendmainA7834220": {
+      "Type": "AWS::Amplify::Branch",
+      "Properties": {
+        "AppId": {
+          "Fn::GetAtt": [
+            "feedbackappfrontend70602909",
+            "AppId"
+          ]
+        },
+        "BranchName": "main",
+        "EnableAutoBuild": true,
+        "EnablePullRequestPreview": true
+      },
+      "Metadata": {
+        "aws:cdk:path": "AmplifyInfraStackStack/feedback-app-frontend/main/Resource"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/01PQQ6CMBB8C/dSwBjPKh8w+ABTSwkLbbehRUOa/t0WiHqa2Zmdye6BVifqy4y9bc7bMZfwpP7uGB9JlB6eYys4KgWO+kYYtOBwWkjd6d8UCDAVbZRiNRLeUAJf9zYWCFNGQrdQH7WLMcm6TkzzPgTSCIvzxLf4H69Rt+AAdSBlzqTpGS2z835rkXBv3U2fir+tOt5OB1u84ovVMSYHC5BPs3agBG02/ADEEQBkAQEAAA=="
+      },
+      "Metadata": {
+        "aws:cdk:path": "AmplifyInfraStackStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "af-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

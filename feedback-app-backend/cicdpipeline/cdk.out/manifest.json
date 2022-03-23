@@ -1,0 +1,196 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "CicdpipelineStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "CicdpipelineStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "CicdpipelineStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "CicdpipelineStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/483340151b1298673fa33c1545bcc59cb8e7e5db11ae2a9f037dc7e90b9c6036.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "CicdpipelineStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "CicdpipelineStack.assets"
+      ],
+      "metadata": {
+        "/CicdpipelineStack/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ArtifactsBucket2AAC5544"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppBackendRepo/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppBackendRepo6FE6EE45"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppBackendRepo/CicdpipelineStackFeedbackAppPipelineB760AAA0-main-EventRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppBackendRepoCicdpipelineStackFeedbackAppPipelineB760AAA0mainEventRuleB58C079C"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineRoleC5C578FE"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineRoleDefaultPolicy91F3D275"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineF4C0CD6B"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/Source/FeedbackApp_Source/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineSourceFeedbackAppSourceCodePipelineActionRole0C3E6C7E"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/Source/FeedbackApp_Source/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineSourceFeedbackAppSourceCodePipelineActionRoleDefaultPolicy20B6627A"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/EventsRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineEventsRole58623314"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/EventsRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineEventsRoleDefaultPolicy597AF07F"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/Build/FeedbackApp_Build/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineBuildFeedbackAppBuildCodePipelineActionRole27F7453D"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/Build/FeedbackApp_Build/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineBuildFeedbackAppBuildCodePipelineActionRoleDefaultPolicyEA6F7A67"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/DeployToDev/CreateChangeSet/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineDeployToDevCreateChangeSetCodePipelineActionRole1016FAF0"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/DeployToDev/CreateChangeSet/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineDeployToDevCreateChangeSetCodePipelineActionRoleDefaultPolicyB5107EF7"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/DeployToDev/CreateChangeSet/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineDeployToDevCreateChangeSetRole35C418BD"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/DeployToDev/CreateChangeSet/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineDeployToDevCreateChangeSetRoleDefaultPolicy806CC254"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/DeployToDev/Deploy/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineDeployToDevDeployCodePipelineActionRoleD21D5700"
+          }
+        ],
+        "/CicdpipelineStack/FeedbackAppPipeline/DeployToDev/Deploy/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FeedbackAppPipelineDeployToDevDeployCodePipelineActionRoleDefaultPolicy853DDF9B"
+          }
+        ],
+        "/CicdpipelineStack/Build/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildRoleB7C66CB2"
+          }
+        ],
+        "/CicdpipelineStack/Build/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BuildRoleDefaultPolicyEAC4E6D6"
+          }
+        ],
+        "/CicdpipelineStack/Build/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Build45A36621"
+          }
+        ],
+        "/CicdpipelineStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/CicdpipelineStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/CicdpipelineStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/CicdpipelineStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "CicdpipelineStack"
+    }
+  }
+}

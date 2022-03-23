@@ -42,7 +42,7 @@ class App extends Component {
             </Content>
 
             <Footer style={{ textAlign: "center" }}>
-              © 2020 Created by @ouzoegwu
+              © 2022 Created by @ouzoegwu
             </Footer>
           </Layout>
           ,

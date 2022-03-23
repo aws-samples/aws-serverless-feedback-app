@@ -26,7 +26,7 @@ The following steps can be used to deploy the frontend:
 
 3. Navigate to the CDK Application to that will be used to create the CI/CD pipeline which consists of the following resources: Amazon CodePipeline, Amazon CodeCommit, Amazon CodeBuild and Amazon CodeDeploy
 
-- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-backend/cicd-pipeline/`**
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-backend/cicdpipeline/`**
 
 4. Install the packages required by the CDK Application (ignore any the warnings)
 
@@ -50,7 +50,8 @@ The following steps can be used to deploy the frontend:
 - **`git add .`**
 - **`git commit -m "first commit"`**
 - **`git remote add codecommit codecommit::{REGION_PLACEHOLDER}://feedback-app-repo-backend`**
-- **`git push -u codecommit master`**
+- **`git branch -M main`**
+- **`git push -u codecommit main`**
 
 9. Identify the url for the API Gateway (Note: The API gateway will take some time (approx. 5 mins) to be created after committing the code so run the command multiple times until the API name is visible)
 
@@ -73,7 +74,7 @@ The following steps can be used to deploy the **frontend after setting up the ba
 
 3. Navigate to the CDK Application to that will be used to create the following infrastructure: CodeCommit Repository (used as source repo) and AWS Amplify Application (used for hosting the frontend)
 
-- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/`**
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-stack/`**
 
 4. Install the packages required by the CDK Application (ignore any the warnings)
 
@@ -97,7 +98,8 @@ The following steps can be used to deploy the **frontend after setting up the ba
 - **`git add .`**
 - **`git commit -m "first commit"`**
 - **`git remote add codecommit codecommit::{REGION_PLACEHOLDER}://feedback-app-repo-frontend`**
-- **`git push -u codecommit master`**
+- **`git branch -M main`**
+- **`git push -u codecommit main`**
 
 ## Step 3 - Accessing the Application
 
@@ -109,7 +111,7 @@ The following steps can be used to deploy the **frontend after setting up the ba
 
 2. Identify the "defaultDomain" field of the app with the name "feedback-app-frontend" and navigate to the URL below on your browser
 
-- **`https://master.{defaultDoman}`**
+- **`https://main.{defaultDoman}`**
 
 ### Option 2 - Via AWS Console
 
@@ -169,10 +171,10 @@ Note: To receive a message via Chime, follow the instructions [here](backend_dee
 
 2. Delete the backend CI/CD pipeline
 
-- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-backend/cicd-pipeline/`**
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-backend/cicdpipeline/`**
 - **`cdk destroy`**
 
 3. Delete the frontend resources
 
-- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-code/`**
+- **`cd /home/ec2-user/environment/aws-serverless-feedback-app/feedback-app-frontend/amplify-infra-stack/`**
 - **`cdk destroy`**
