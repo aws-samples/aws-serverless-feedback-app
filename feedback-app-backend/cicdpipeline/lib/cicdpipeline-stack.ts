@@ -13,7 +13,9 @@ export class CicdpipelineStack extends Stack {
     super(scope, id, props);
 
     // The code that defines your stack goes here
-    const artifactsBucket = new s3.Bucket(this, "ArtifactsBucket");
+    const artifactsBucket = new s3.Bucket(this, "ArtifactsBucket",{
+      encryption: s3.BucketEncryption.S3_MANAGED
+    });
     
     // Creating a code commit repository for the feedback-app-backend
     const feedbackAppBackendRepo = new codecommit.Repository(

@@ -2,6 +2,17 @@
   "Resources": {
     "ArtifactsBucket2AAC5544": {
       "Type": "AWS::S3::Bucket",
+      "Properties": {
+        "BucketEncryption": {
+          "ServerSideEncryptionConfiguration": [
+            {
+              "ServerSideEncryptionByDefault": {
+                "SSEAlgorithm": "AES256"
+              }
+            }
+          ]
+        }
+      },
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
@@ -1100,7 +1111,7 @@
     "CDKMetadata": {
       "Type": "AWS::CDK::Metadata",
       "Properties": {
-        "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WQWw6DIBBF19J/pM90AXUDxi6gUZgmo8gYHjYNYe9FsPHrHpi5dyZz4ec7Px26j62EHCuFPQ9P14mRpa9XsFceHl6M4Fj91oUiEyRB0DSh46GFmSw6Mt+1Y39FBgtoZ1OHV5BrSYt3xhkUauCh2Wit/zky7KZko822akMKRZ5QqOT0HpXcQxpDA4i86YYxlqUseSNyWk1aokPSkemUwAd7XNIFzrd0hMEiVsZrhxPwtugPD4qotiABAAA="
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WQYQ6CMAyFz8L/URWNB5ALEDyAgVGTwlgJ2zBm2d0dDMOv93Xte2tawOUO56z5mFx2Q66oBf+0jRxEfHp5cwX/cHJAK8q3ThSE5A4ljyNZ8DVObMjy/F0njioIXFBbEyecwq0XNXknmlCRRvDVTmv/z0FQM0Yb77ZVK1Yktx8SpZzWkeqOkGrmHuW26Y4hpKUMu1luaSXrjiyxDkLHBOjNaYkXuNygyHpDlM9OWxoR6qQ/j0P4mCABAAA="
       },
       "Metadata": {
         "aws:cdk:path": "CicdpipelineStack/CDKMetadata/Default"
